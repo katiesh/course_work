@@ -19,4 +19,7 @@ public class Service {
     public double calculateExactValue(double x, double t){
         return Math.exp(b*t)*Math.pow((A*x + B), 0.5D);
     }
+    public double calculateWgrid(double wi, double wiPrev, double wiNext, double h, double tau){
+        return wi + tau*(a*((wiNext - wiPrev)/2*h + wi*((wiPrev - 2*wi + wiNext)/Math.pow(h,2))) + b*wi);
+    }
 }
