@@ -48,14 +48,6 @@ public class Main {
             }
         }
         int numberOfThreads = 3;
-        ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
-        for (int i = 0; i < numberOfStepsX ; i++) {
-            for (int k = 0; k < numberOfStepsT ; k++) {
-                System.out.print(paralel[i][k] + "  ");
-            }
-            System.out.println();
-        }
-        System.out.println("+++++++++++++++++++++");
         for (int j = 1; j < numberOfStepsT; j++) {
             List<CalculationThread> calculationThreads = new ArrayList<>();
             for (int i = 0; i < numberOfThreads; i++) {
