@@ -24,7 +24,7 @@ public class CalculationThread extends Thread{
     @Override
     public void run() throws RuntimeException {
         for (int i = startIndex; i <endIndex; i++) {
-            matrix[i][column] = service.calculateWgrid(matrix[i-1][column], matrix[i-1][column-1],
+            matrix[i][column] = service.calculateWgrid(matrix[i][column-1], matrix[i-1][column-1],
                     matrix[i+1][column-1], stepX, stepT);
         }
     }
