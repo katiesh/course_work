@@ -6,11 +6,11 @@ public class CalculationThread extends Thread{
     private int startIndex;
     private int endIndex;
     private int column;
-    private double matrix[][];
+    private Double matrix[][];
     private double stepX;
     private double stepT;
     private Service service;
-    public CalculationThread(int startIndex, int endIndex, int column, double matrix[][],
+    public CalculationThread(int startIndex, int endIndex, int column, Double matrix[][],
                              double stepX, double stepT){
         this.startIndex = startIndex;
         this.endIndex = endIndex;
