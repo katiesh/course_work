@@ -14,24 +14,29 @@ public class View {
         }
     }
 
-    public <T> void printMatrixInFile(T matrix[][], String fileName, String name) throws IOException {
-        FileWriter fileWriter = new FileWriter(fileName);
-        fileWriter.write(name + " = {");
-        for (int i = 0; i < matrix.length ; i++) {
-            for (int j = 0; j < matrix[i].length ; j++) {
-                if(j < matrix[i].length){
-                    fileWriter.write(matrix[i][j] + ", ");
+    public <T> void printMatrixInFile(T matrix[][], String fileName, String name){
+        try ( FileWriter fileWriter = new FileWriter(fileName)){
+            fileWriter.write(name + " = {");
+            for (int i = 0; i < matrix.length; i++) {
+                fileWriter.write("{ ");
+                for (int j = 0; j < matrix[i].length; j++) {
+                    if (j < matrix[i].length - 1) {
+                        fileWriter.write(matrix[i][j] + ", ");
+                    } else {
+                        fileWriter.write(matrix[i][j] + "");
+                    }
+                }
+                if (i < matrix.length - 1) {
+                    fileWriter.write(" }, ");
                 } else {
-                    fileWriter.write(matrix[i][j] + "");
+                    fileWriter.write(" } ");
                 }
             }
-            if(i < matrix.length -1){
-                fileWriter.write(" }, ");
-            } else {
-                fileWriter.write(" } ");
-            }
+            fileWriter.write(" };");
+            fileWriter.flush();
+        } catch (IOException e){
+            e.printStackTrace();
         }
-        fileWriter.write(" };");
     }
 
     public void print (String message){
