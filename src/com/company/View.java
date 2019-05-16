@@ -33,4 +33,8 @@ public class View {
         }
         fileWriter.write(" };");
     }
+
+    public void print (String message){
+        System.out.println(message);
+    }
 }
